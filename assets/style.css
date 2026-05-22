@@ -1,0 +1,156 @@
+/* 自动化数学建模平台 — 自定义样式 */
+
+/* ===== 全局 ===== */
+.stApp {
+    background-color: #F0F7FF;
+}
+
+/* ===== 顶栏 ===== */
+header[data-testid="stHeader"] {
+    background-color: #E3F2FD;
+}
+
+/* ===== 侧边栏 ===== */
+section[data-testid="stSidebar"] {
+    background-color: #E3F2FD;
+}
+
+section[data-testid="stSidebar"] .stMarkdown h1 {
+    color: #1565C0;
+    font-size: 22px;
+}
+
+/* ===== 步骤卡片 ===== */
+.step-card {
+    background: #FFFFFF;
+    border: 1px solid #E0E0E0;
+    border-radius: 8px;
+    padding: 24px;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.step-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.step-card-active {
+    border-left: 4px solid #4A90D9;
+    background: #FFFFFF;
+    border-radius: 8px;
+    padding: 24px;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 12px rgba(74, 144, 217, 0.15);
+}
+
+.step-card-completed {
+    border-left: 4px solid #4CAF50;
+    background: #FAFBFC;
+    border-radius: 8px;
+    padding: 24px;
+    margin-bottom: 16px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+}
+
+/* ===== 按钮 ===== */
+.stButton > button {
+    background-color: #5B9BD5;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 24px;
+    font-weight: 600;
+    font-size: 15px;
+    transition: background-color 0.2s;
+}
+
+.stButton > button:hover {
+    background-color: #3A7BC8;
+    color: white;
+    border: none;
+}
+
+.stButton > button:active {
+    background-color: #2E6DB5;
+}
+
+/* ===== 上传区域 ===== */
+.stFileUploader {
+    border: 2px dashed #B0C4DE;
+    border-radius: 8px;
+    padding: 10px;
+}
+
+.stFileUploader:hover {
+    border-color: #4A90D9;
+    background-color: #FAFCFE;
+}
+
+/* ===== 表格 ===== */
+.stTable, .stDataFrame {
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.stTable thead th, .stDataFrame thead th {
+    background-color: #E3F2FD !important;
+    color: #1A1A2E !important;
+    font-weight: bold !important;
+}
+
+/* ===== 指标卡片 ===== */
+.metric-box {
+    background: #F0F7FF;
+    border-radius: 8px;
+    padding: 16px;
+    text-align: center;
+}
+
+.metric-box .metric-value {
+    font-size: 28px;
+    font-weight: bold;
+    color: #1565C0;
+}
+
+.metric-box .metric-label {
+    font-size: 13px;
+    color: #78909C;
+    margin-top: 4px;
+}
+
+/* ===== 清洗报告 ===== */
+.cleaning-report {
+    background: #F5FBF5;
+    border-left: 3px solid #4CAF50;
+    border-radius: 4px;
+    padding: 12px 16px;
+    margin: 8px 0;
+    font-size: 14px;
+}
+
+/* ===== 结论卡片 ===== */
+.insight-card {
+    background: #FFFBF0;
+    border-left: 4px solid #F39C12;
+    border-radius: 6px;
+    padding: 16px 20px;
+    margin: 8px 0;
+}
+
+/* ===== 滚动条 ===== */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #F0F7FF;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #B0C4DE;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #78909C;
+}
