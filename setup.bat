@@ -23,19 +23,15 @@ if %errorlevel%==0 (
 echo         未检测到 Python，尝试自动安装...
 echo.
 
-:: 尝试用 winget 安装（Win10/11 自带）
 winget --version >nul 2>&1
 if %errorlevel%==0 (
     echo         正在通过 winget 安装 Python 3.12...
     winget install Python.Python.3.12 --accept-package-agreements --accept-source-agreements
-    if %errorlevel%==0 (
-        echo         Python 安装完成，请重新运行 setup.bat
-        pause
-        exit /b 0
-    )
+    echo         Python 安装完成，请重新运行 setup.bat
+    pause
+    exit /b 0
 )
 
-:: 如果 winget 不可用，提示手动安装
 echo.
 echo   ⚠️  自动安装失败，请手动安装 Python：
 echo.
@@ -52,29 +48,26 @@ exit /b 1
 :: ==========================================
 :install_deps
 echo.
-echo [2/3] 安装项目依赖...
-pip install streamlit pandas numpy scikit-learn matplotlib seaborn openpyxl scipy -q
+echo [2/3] 安装项目依赖（可能需要几分钟）...
+echo.
+python -m pip install streamlit pandas numpy scikit-learn matplotlib seaborn openpyxl scipy
 if %errorlevel%==0 (
+    echo.
     echo         依赖安装完成 ✓
 ) else (
+    echo.
     echo         ⚠️ 部分依赖安装失败，尝试继续...
 )
-
-:: ==========================================
-:: 步骤 3：启动平台
-:: ==========================================
 echo.
-echo [3/3] 启动平台...
+echo [3/3] 启动平台（服务器就绪后自动打开浏览器）...
 echo.
 echo   ┌─────────────────────────────────────┐
-echo   │  浏览器将自动打开                    │
-echo   │  http://localhost:8501               │
-echo   │                                     │
+echo   │  等待服务器启动...                   │
 echo   │  关闭此窗口即可停止服务              │
 echo   └─────────────────────────────────────┘
 echo.
 
-start "" http://localhost:8501
-streamlit run app.py --server.port 8501 --server.headless true --browser.gatherUsageStats false
+:: 启动 Streamlit（让它自己打开浏览器）
+python -m streamlit run app.py --server.port 8501 --browser.gatherUsageStats false
 
 pause
